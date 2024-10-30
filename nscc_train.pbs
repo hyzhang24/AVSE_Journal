@@ -13,6 +13,9 @@ export SINGULARITY_BIND="/home/project:/home/project,/scratch:/scratch,/app:/app
 singularity run --nv /app/apps/containers/kaldi/kaldi-nvidia-22.04-py3.sif << EOF
 source ~/miniconda3/bin/activate ~/miniconda3/envs/avse_new
 
-python train.py
+python train.py \
+      --base_dir /home3/hexin/avse_data/ \
+      --no_wandb --gpus 2 \
+      --inject_type default
 
 EOF

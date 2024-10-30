@@ -1,0 +1,2 @@
+srun: error: node03: task 0: Exited with exit code 1
+slurm.pl: job failed, log is in log/train3.log

@@ -1,0 +1,2 @@
+slurmstepd-node09: error: *** STEP 564715.0 ON node09 CANCELLED AT 2024-10-21T16:09:56 ***
+slurmstepd-node09: error: *** JOB 564714 ON node09 CANCELLED AT 2024-10-21T16:09:56 ***

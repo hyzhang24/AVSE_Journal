@@ -1,0 +1,27 @@
+backbone: ncsnpp
+base_dir: /home3/hexin/avse_data/
+batch_size: 8
+centered: true
+data_module_cls: !!python/name:sgmse.data_module.SpecsDataModule ''
+dummy: false
+ema_decay: 0.999
+format: lrs3
+hop_length: 128
+inject_type: default
+loss_type: mse
+lr: 0.0001
+n_fft: 510
+normalize: noisy
+num_eval_files: 20
+num_frames: 256
+num_workers: 4
+sde: ouve
+sde_n: 1000
+sigma_max: 0.5
+sigma_min: 0.05
+spec_abs_exponent: 0.5
+spec_factor: 0.15
+t_eps: 0.03
+theta: 1.5
+transform_type: exponent
+window: hann

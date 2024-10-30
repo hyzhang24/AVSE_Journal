@@ -1,0 +1,275 @@
+# python train.py --base_dir /home3/hexin/avse_data/ --no_wandb --gpus 2 --inject_type default 
+# Invoked at Tue Oct 22 09:31:32 +08 2024 from node09
+#
+# Started at Tue Oct 22 09:31:35 +08 2024 on node09
+/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/utilities.py:92: PossibleUserWarning: `max_epochs` was not set. Setting it to 1000 epochs. To train without an epoch limit, set `max_epochs=-1`.
+  rank_zero_warn(
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+Initializing distributed: GLOBAL_RANK: 0, MEMBER: 1/2
+Initializing distributed: GLOBAL_RANK: 1, MEMBER: 2/2
+----------------------------------------------------------------------------------------------------
+distributed_backend=nccl
+All distributed processes registered. Starting with 2 processes
+----------------------------------------------------------------------------------------------------
+
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0,1]
+LOCAL_RANK: 1 - CUDA_VISIBLE_DEVICES: [0,1]
+
+  | Name | Type   | Params
+--------------------------------
+0 | dnn  | NCSNpp | 65.6 M
+--------------------------------
+65.6 M    Trainable params
+128       Non-trainable params
+65.6 M    Total params
+262.363   Total estimated model params size (MB)
+/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/utils/data/dataloader.py:487: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+Training: 0it [00:00, ?it/s]Training:   0%|          | 0/2369 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/2369 [00:00<?, ?it/s] /home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/utils/data/dataloader.py:487: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 1, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+h shape: torch.Size([8, 256, 4, 4]), hs[-1] shape: torch.Size([8, 256, 4, 4]) num resblock 0
+h shape: torch.Size([8, 256, 4, 4]) module name: ResnetBlockBigGANpp(
+  (GroupNorm_0): GroupNorm(32, 512, eps=1e-06, affine=True)
+  (Conv_0): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Dense_0): Linear(in_features=512, out_features=256, bias=True)
+  (GroupNorm_1): GroupNorm(32, 256, eps=1e-06, affine=True)
+  (Dropout_0): Dropout(p=0.0, inplace=False)
+  (Conv_1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Conv_2): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+  (act): SiLU()
+)
+h shape: torch.Size([8, 256, 4, 4]), hs[-1] shape: torch.Size([8, 256, 4, 4]) num resblock 1
+h shape: torch.Size([8, 256, 4, 4]) module name: ResnetBlockBigGANpp(
+  (GroupNorm_0): GroupNorm(32, 512, eps=1e-06, affine=True)
+  (Conv_0): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Dense_0): Linear(in_features=512, out_features=256, bias=True)
+  (GroupNorm_1): GroupNorm(32, 256, eps=1e-06, affine=True)
+  (Dropout_0): Dropout(p=0.0, inplace=False)
+  (Conv_1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Conv_2): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+  (act): SiLU()
+)
+h shape: torch.Size([8, 256, 4, 4]), hs[-1] shape: torch.Size([8, 256, 4, 4]) num resblock 2
+h shape: torch.Size([8, 256, 4, 4]) module name: ResnetBlockBigGANpp(
+  (GroupNorm_0): GroupNorm(32, 512, eps=1e-06, affine=True)
+  (Conv_0): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Dense_0): Linear(in_features=512, out_features=256, bias=True)
+  (GroupNorm_1): GroupNorm(32, 256, eps=1e-06, affine=True)
+  (Dropout_0): Dropout(p=0.0, inplace=False)
+  (Conv_1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Conv_2): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+  (act): SiLU()
+)
+h shape: torch.Size([8, 256, 8, 8]), hs[-1] shape: torch.Size([8, 256, 8, 9]) num resblock 0
+Traceback (most recent call last):
+  File "train.py", line 96, in <module>
+    trainer.fit(model)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 770, in fit
+    self._call_and_handle_interrupt(
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 721, in _call_and_handle_interrupt
+    return self.strategy.launcher.launch(trainer_fn, *args, trainer=self, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/strategies/launchers/subprocess_script.py", line 93, in launch
+    return function(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 811, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1236, in _run
+    results = self._run_stage()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1323, in _run_stage
+    return self._run_train()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1353, in _run_train
+    self.fit_loop.run()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/fit_loop.py", line 266, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 208, in advance
+    batch_output = self.batch_loop.run(batch, batch_idx)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/batch/training_batch_loop.py", line 88, in advance
+    outputs = self.optimizer_loop.run(split_batch, optimizers, batch_idx)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 203, in advance
+    result = self._run_optimization(
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 256, in _run_optimization
+    self._optimizer_step(optimizer, opt_idx, batch_idx, closure)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 369, in _optimizer_step
+    self.trainer._call_lightning_module_hook(
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1595, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home3/hexin/AVSE_Journal/sgmse/model.py", line 77, in optimizer_step
+    super().optimizer_step(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/core/lightning.py", line 1646, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/core/optimizer.py", line 168, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, self._optimizer_idx, closure, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/strategies/ddp.py", line 286, in optimizer_step
+    optimizer_output = super().optimizer_step(optimizer, opt_idx, closure, model, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/strategies/strategy.py", line 193, in optimizer_step
+    return self.precision_plugin.optimizer_step(model, optimizer, opt_idx, closure, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 155, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/optim/optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/optim/adam.py", line 100, in step
+    loss = closure()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 140, in _wrap_closure
+    closure_result = closure()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 148, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 134, in closure
+    step_output = self._step_fn()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 427, in _training_step
+    training_step_output = self.trainer._call_strategy_hook("training_step", *step_kwargs.values())
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1765, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/strategies/ddp.py", line 349, in training_step
+    return self.model(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 963, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/overrides/base.py", line 82, in forward
+    output = self.module.training_step(*inputs, **kwargs)
+  File "/home3/hexin/AVSE_Journal/sgmse/model.py", line 134, in training_step
+    loss = self._step_train(batch, batch_idx)
+  File "/home3/hexin/AVSE_Journal/sgmse/model.py", line 127, in _step_train
+    score = self.forward_train(perturbed_data, t, noisy, video)
+  File "/home3/hexin/AVSE_Journal/sgmse/model.py", line 155, in forward_train
+    score = -self.dnn(dnn_input, t)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home3/hexin/AVSE_Journal/sgmse/backbones/ncsnpp.py", line 357, in forward
+    h = modules[m_idx](torch.cat([h, hs.pop()], dim=1), temb)
+RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 8 but got size 9 for tensor number 1 in the list.
+h shape: torch.Size([8, 256, 4, 4]), hs[-1] shape: torch.Size([8, 256, 4, 4]) num resblock 0
+h shape: torch.Size([8, 256, 4, 4]) module name: ResnetBlockBigGANpp(
+  (GroupNorm_0): GroupNorm(32, 512, eps=1e-06, affine=True)
+  (Conv_0): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Dense_0): Linear(in_features=512, out_features=256, bias=True)
+  (GroupNorm_1): GroupNorm(32, 256, eps=1e-06, affine=True)
+  (Dropout_0): Dropout(p=0.0, inplace=False)
+  (Conv_1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Conv_2): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+  (act): SiLU()
+)
+h shape: torch.Size([8, 256, 4, 4]), hs[-1] shape: torch.Size([8, 256, 4, 4]) num resblock 1
+h shape: torch.Size([8, 256, 4, 4]) module name: ResnetBlockBigGANpp(
+  (GroupNorm_0): GroupNorm(32, 512, eps=1e-06, affine=True)
+  (Conv_0): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Dense_0): Linear(in_features=512, out_features=256, bias=True)
+  (GroupNorm_1): GroupNorm(32, 256, eps=1e-06, affine=True)
+  (Dropout_0): Dropout(p=0.0, inplace=False)
+  (Conv_1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Conv_2): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+  (act): SiLU()
+)
+h shape: torch.Size([8, 256, 4, 4]), hs[-1] shape: torch.Size([8, 256, 4, 4]) num resblock 2
+h shape: torch.Size([8, 256, 4, 4]) module name: ResnetBlockBigGANpp(
+  (GroupNorm_0): GroupNorm(32, 512, eps=1e-06, affine=True)
+  (Conv_0): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Dense_0): Linear(in_features=512, out_features=256, bias=True)
+  (GroupNorm_1): GroupNorm(32, 256, eps=1e-06, affine=True)
+  (Dropout_0): Dropout(p=0.0, inplace=False)
+  (Conv_1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+  (Conv_2): Conv2d(512, 256, kernel_size=(1, 1), stride=(1, 1))
+  (act): SiLU()
+)
+h shape: torch.Size([8, 256, 8, 8]), hs[-1] shape: torch.Size([8, 256, 8, 9]) num resblock 0
+Traceback (most recent call last):
+  File "/home3/hexin/AVSE_Journal/train.py", line 96, in <module>
+    trainer.fit(model)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 770, in fit
+    self._call_and_handle_interrupt(
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 723, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 811, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1236, in _run
+    results = self._run_stage()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1323, in _run_stage
+    return self._run_train()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1353, in _run_train
+    self.fit_loop.run()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/fit_loop.py", line 266, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 208, in advance
+    batch_output = self.batch_loop.run(batch, batch_idx)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/batch/training_batch_loop.py", line 88, in advance
+    outputs = self.optimizer_loop.run(split_batch, optimizers, batch_idx)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 203, in advance
+    result = self._run_optimization(
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 256, in _run_optimization
+    self._optimizer_step(optimizer, opt_idx, batch_idx, closure)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 369, in _optimizer_step
+    self.trainer._call_lightning_module_hook(
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1595, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home3/hexin/AVSE_Journal/sgmse/model.py", line 77, in optimizer_step
+    super().optimizer_step(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/core/lightning.py", line 1646, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/core/optimizer.py", line 168, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, self._optimizer_idx, closure, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/strategies/ddp.py", line 286, in optimizer_step
+    optimizer_output = super().optimizer_step(optimizer, opt_idx, closure, model, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/strategies/strategy.py", line 193, in optimizer_step
+    return self.precision_plugin.optimizer_step(model, optimizer, opt_idx, closure, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 155, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/optim/optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/optim/adam.py", line 100, in step
+    loss = closure()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 140, in _wrap_closure
+    closure_result = closure()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 148, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 134, in closure
+    step_output = self._step_fn()
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 427, in _training_step
+    training_step_output = self.trainer._call_strategy_hook("training_step", *step_kwargs.values())
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/trainer/trainer.py", line 1765, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/strategies/ddp.py", line 349, in training_step
+    return self.model(*args, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/nn/parallel/distributed.py", line 963, in forward
+    output = self.module(*inputs[0], **kwargs[0])
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/pytorch_lightning/overrides/base.py", line 82, in forward
+    output = self.module.training_step(*inputs, **kwargs)
+  File "/home3/hexin/AVSE_Journal/sgmse/model.py", line 134, in training_step
+    loss = self._step_train(batch, batch_idx)
+  File "/home3/hexin/AVSE_Journal/sgmse/model.py", line 127, in _step_train
+    score = self.forward_train(perturbed_data, t, noisy, video)
+  File "/home3/hexin/AVSE_Journal/sgmse/model.py", line 155, in forward_train
+    score = -self.dnn(dnn_input, t)
+  File "/home3/hexin/anaconda3/envs/avse_new/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home3/hexin/AVSE_Journal/sgmse/backbones/ncsnpp.py", line 357, in forward
+    h = modules[m_idx](torch.cat([h, hs.pop()], dim=1), temb)
+RuntimeError: Sizes of tensors must match except in dimension 1. Expected size 8 but got size 9 for tensor number 1 in the list.
+# Ended (code 256) at Tue Oct 22 09:32:12 +08 2024, elapsed time 40 seconds

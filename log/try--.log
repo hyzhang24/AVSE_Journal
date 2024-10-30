@@ -1,0 +1,15 @@
+# python try.py 
+# Invoked at Thu Sep 26 15:58:44 +08 2024 from node06
+#
+# Started at Thu Sep 26 15:58:47 +08 2024 on node06
+input audio size: torch.Size([1, 1, 660, 257])
+input video size: torch.Size([1, 162, 88, 88])
+input video size: torch.Size([162, 1, 1, 88, 88])
+after 3D front end: torch.Size([162, 64, 1, 42, 42])
+after transpose: torch.Size([162, 1, 64, 42, 42])
+after reshape: torch.Size([162, 64, 42, 42])
+after resnet: torch.Size([162, 128, 1, 1])
+before TCN: torch.Size([1, 128, 162])
+after TCN: torch.Size([1, 128, 162])
+final: torch.Size([1, 162, 128])
+# Ended (code 0) at Thu Sep 26 15:58:54 +08 2024, elapsed time 10 seconds

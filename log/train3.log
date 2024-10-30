@@ -1,0 +1,4 @@
+# python train.py --base_dir /home3/hexin/avse_data/ --no_wandb --gpus 2 --inject_type default 
+# Invoked at Mon Oct 21 12:36:23 +08 2024 from node03
+#
+# Started at Mon Oct 21 12:36:26 +08 2024 on node03
